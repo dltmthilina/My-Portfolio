@@ -76,7 +76,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className=" md:flex hidden items-centerspace-x-4">
+        <div className=" md:flex hidden items-center space-x-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
