@@ -17,7 +17,10 @@ const skills = [
 
 export default function About() {
   return (
-    <section className="relative z-10 w-full bg-white dark:bg-gray-900 text-gray-800 dark:text-white py-20 px-6 md:px-20">
+    <section
+      id="about"
+      className="relative z-10 w-full bg-white dark:bg-gray-900 text-gray-800 dark:text-white  px-6 md:px-10"
+    >
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Profile */}
         <motion.div
