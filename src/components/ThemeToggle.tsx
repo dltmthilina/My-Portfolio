@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -13,26 +11,32 @@ export default function ThemeToggle() {
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
+  const handleToggle = (newTheme: "light" | "dark") => {
     setTheme(newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
   return (
-    <div className="absolute top-6 right-6 z-30">
+    <div className="absolute top-6 left-6 z-40 bg-gray-100 dark:bg-gray-800 rounded-full p-1 flex shadow-lg">
       <button
-        onClick={toggleTheme}
-        className="relative flex items-center w-14 h-8 rounded-full px-1 bg-gray-200 dark:bg-gray-700 shadow-inner transition-colors duration-300"
+        onClick={() => handleToggle("light")}
+        className={`px-4 py-1 rounded-full text-sm font-medium transition ${
+          theme === "light"
+            ? "bg-white text-indigo-600 dark:bg-gray-100"
+            : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+        }`}
       >
-        <motion.div
-          className="absolute w-6 h-6 bg-white rounded-full shadow-md"
-          layout
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          style={{ left: theme === "dark" ? "calc(100% - 28px)" : "4px" }}
-        />
-        <Sun className="w-4 h-4 text-yellow-500 z-10 ml-1" />
-        <Moon className="w-4 h-4 text-blue-400 z-10 ml-auto mr-1" />
+        Light
+      </button>
+      <button
+        onClick={() => handleToggle("dark")}
+        className={`px-4 py-1 rounded-full text-sm font-medium transition ${
+          theme === "dark"
+            ? "bg-gray-900 text-white dark:bg-gray-700"
+            : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+        }`}
+      >
+        Dark
       </button>
     </div>
   );
