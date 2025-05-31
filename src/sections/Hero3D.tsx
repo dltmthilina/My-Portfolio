@@ -1,9 +1,7 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useRef } from "react";
-import * as THREE from "three";
 import { AnimatedCube } from "@/components/AnimatedCube";
 
 const bounds = { x: 6, y: 4, z: 6 };
