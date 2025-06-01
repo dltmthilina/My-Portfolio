@@ -12,7 +12,6 @@ const navLinks = [
   { name: "About", path: "#about" },
   { name: "Projects", path: "#projects" },
   { name: "Experience", path: "#experience" },
-  { name: "Contact", path: "#contact" },
 ];
 
 export default function Navbar() {
@@ -103,7 +102,7 @@ export default function Navbar() {
           </motion.div>
         </div>
 
-        <motion.button
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -115,8 +114,8 @@ export default function Navbar() {
           }}
           className="md:flex hidden ml-4 px-4 py-2 rounded-xl bg-gradient-to-r from-gray-400 to-gray-100 text-indigo-600 font-bold hover:from-violet-700 hover:to-purple-700  hover:text-white transition-all duration-500"
         >
-          Hire Me
-        </motion.button>
+          <Link href="#contact">Hire Me</Link>
+        </motion.div>
 
         {/* Hamburger Menu */}
         <button
