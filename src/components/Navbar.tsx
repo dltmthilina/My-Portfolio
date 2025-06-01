@@ -6,6 +6,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
+import { BsMedium } from "react-icons/bs";
 
 const navLinks = [
   { name: "Home", path: "#home" },
@@ -81,24 +82,42 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.3, duration: 0.8 }}
           >
-            <Link
-              href="#"
-              className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 translation-colors duration-300"
+            <a
+              href="https://github.com/dltmthilina"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300"
             >
-              <FiGithub className=" w-5 h-5" />
-            </Link>
+              <FiGithub className="w-5 h-5" />
+            </a>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.3, duration: 0.8 }}
           >
-            <Link
-              href="#"
-              className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 translation-colors duration-300"
+            <a
+              href="https://linkedin.com/in/thilinadisanayaka"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300"
             >
-              <FiLinkedin className=" w-5 h-5" />
-            </Link>
+              <FiLinkedin className="w-5 h-5" />
+            </a>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.3, duration: 0.8 }}
+          >
+            <a
+              href="https://medium.com/@dltmthilinamaduranga"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300"
+            >
+              <BsMedium className="w-5 h-5" />
+            </a>
           </motion.div>
         </div>
 
