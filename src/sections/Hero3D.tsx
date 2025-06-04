@@ -15,6 +15,10 @@ export default function Hero3D() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10  relative z-10">
         {/* Left: Text Content */}
         <div className="m-auto">
+          <h1 className="text-indigo-600 font-bold text-3xl">
+            Hello, I&apos;m
+          </h1>
+
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
             Thilina Disanayaka
           </h1>
