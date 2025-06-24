@@ -29,9 +29,14 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="flex justify-center"
         >
-          <div className="w-52 h-52 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full shadow-xl flex items-center justify-center text-white text-xl font-bold">
+          <div className="w-68 h-68 rounded-full overflow-hidden shadow-xl flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600">
             {/* Placeholder Avatar */}
-            Thilina
+             <img
+      src="/me.jpeg"
+      alt="Thilina"
+      className="w-full h-full object-cover object-center scale-1"
+      
+    />
           </div>
         </motion.div>
 
