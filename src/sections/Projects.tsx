@@ -1,27 +1,29 @@
-"use client";
+import { useEffect, useState } from "react";
+import { FaCalendarAlt, FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
+import { projects } from "../app/projects/ProjectData";
 
-import { FaCalendarAlt } from "react-icons/fa";
+function ProjectImageCarousel({ images }: { images: string[] }) {
+  const [index, setIndex] = useState(0);
 
-const projects = [
-  {
-    title: "CeylonTravelLife",
-    date: "Jan 2025",
-    description:
-      "A location-aware travel app with secure login and CI/CD deployment.",
-  },
-  {
-    title: "Student Management System",
-    date: "Feb 2024",
-    description:
-      "A secure portal with REST APIs, JWT auth, and test-driven development.",
-  },
-  {
-    title: "Project Three",
-    date: "Dec 2023",
-    description:
-      "A sample project placeholder for visual balance and layout testing.",
-  },
-];
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [images]);
+
+  return (
+    <div className="h-48 w-full overflow-hidden rounded-xl mb-4 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+      <img
+        loading="lazy"
+        src={images[index]}
+        alt="Project screenshot"
+        className="object-cover w-full h-full transition-all duration-500"
+      />
+    </div>
+  );
+}
 
 export default function ProjectsSection() {
   return (
@@ -38,17 +40,80 @@ export default function ProjectsSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative group bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"
+              className="relative group bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300 flex flex-col"
             >
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+              {/* Image Carousel */}
+              <ProjectImageCarousel images={project.images} />
+
+              {/* Technologies */}
+              <div className="flex flex-wrap gap-3 mb-4">
+                {project.technologies.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="flex items-center gap-1 text-sm font-medium"
+                  >
+                    {tech.icon && <tech.icon className={tech.className} />}
+                    {tech.name}
+                  </span>
+                ))}
+              </div>
+
+              {/* Title & Description */}
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-indigo-600 transition-colors duration-300">
                 {project.title}
               </h3>
+              <ul className="mb-4 leading-relaxed space-y-2">
+                {project.description.map((desc: string, i: number) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
+                  >
+                    <span className="mt-1 text-indigo-500">
+                      <FaReact size={14} />
+                    </span>
+                    <span>{desc}</span>
+                  </li>
+                ))}
+              </ul>
 
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                {project.description}
-              </p>
-
-              <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 absolute bottom-6">
+              {(project.github.frontend ||
+                project.github.backend ||
+                project.github.both) && (
+                <div className="flex gap-3 mb-4">
+                  {project.github.both && (
+                    <a
+                      href={project.github.both}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-800 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 transition"
+                    >
+                      <FaGithub /> GitHub Repo
+                    </a>
+                  )}
+                  {project.github.frontend && (
+                    <a
+                      href={project.github.frontend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-800 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 transition"
+                    >
+                      <FaGithub /> Frontend
+                    </a>
+                  )}
+                  {project.github.backend && (
+                    <a
+                      href={project.github.backend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm font-medium text-gray-800 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-800 transition"
+                    >
+                      <FaGithub /> Backend
+                    </a>
+                  )}
+                </div>
+              )}
+              {/* Date */}
+              <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-auto">
                 <FaCalendarAlt className="mr-2 text-indigo-500" />
                 {project.date}
               </div>
