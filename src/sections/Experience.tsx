@@ -35,7 +35,7 @@ export default function ExperienceSection() {
       id="experience"
       className="bg-white dark:bg-gray-900 py-20 px-6 md:px-20"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
           Experience
         </h2>
