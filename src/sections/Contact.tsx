@@ -1,8 +1,33 @@
 "use client";
 
+import { useRef } from "react";
+import emailjs from "emailjs-com";
 import { Mail, Github, Linkedin } from "lucide-react";
 
 export default function ContactSection() {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.current) return;
+    emailjs
+      .sendForm(
+        "service_890ozup",
+        "template_3anajvq",
+        form.current,
+        "gknFygdfrC9cIAHGu"
+      )
+      .then(
+        () => {
+          alert("Message sent!");
+          form.current?.reset();
+        },
+        () => {
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
+
   return (
     <section
       id="contact"
@@ -15,20 +40,26 @@ export default function ContactSection() {
         </p>
 
         {/* Contact Form */}
-        <form className="grid gap-6 text-left">
+        <form ref={form} onSubmit={sendEmail} className="grid gap-6 text-left">
           <input
             type="text"
+            name="user_name"
             placeholder="Your Name"
+            required
             className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <input
             type="email"
+            name="user_email"
             placeholder="Your Email"
+            required
             className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <textarea
             rows={4}
+            name="message"
             placeholder="Your Message"
+            required
             className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           ></textarea>
           <button
