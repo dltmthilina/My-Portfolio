@@ -36,13 +36,34 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: out
 
-            # Set cache headers for static assets
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Set cache headers for HTML
+        run: |
+          aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/ s3://${{ secrets.AWS_S3_BUCKET }}/ \
+            --recursive --exclude "*" --include "*.html" \
+            --metadata-directive REPLACE --cache-control "no-cache, no-store, must-revalidate" \
+            --region ${{ secrets.AWS_REGION }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Set cache headers for static assets
         run: |
-          aws s3 cp s3://YOUR_BUCKET_NAME/_next/static/ s3://YOUR_BUCKET_NAME/_next/static/ \
-            --recursive --metadata-directive REPLACE --cache-control "public, max-age=31536000, immutable"
+          aws s3 cp s3://${{ secrets.AWS_S3_BUCKET }}/_next/static/ s3://${{ secrets.AWS_S3_BUCKET }}/_next/static/ \
+            --recursive --metadata-directive REPLACE --cache-control "public, max-age=31536000, immutable" \
+            --region ${{ secrets.AWS_REGION }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      # Invalidate CloudFront cache
       - name: Invalidate CloudFront
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
