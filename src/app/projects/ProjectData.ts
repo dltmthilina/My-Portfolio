@@ -11,7 +11,6 @@ import {
 } from "react-icons/si";
 
 import { IconType } from "react-icons";
-import { FaS } from "react-icons/fa6";
 
 type Technology = {
   name: string;
