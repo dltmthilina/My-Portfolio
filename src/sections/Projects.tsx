@@ -1,6 +1,9 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { FaCalendarAlt, FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
+import { FaCalendarAlt, FaReact, FaGithub } from "react-icons/fa";
 import { projects } from "../app/projects/ProjectData";
+import Image from "next/image";
 
 function ProjectImageCarousel({ images }: { images: string[] }) {
   const [index, setIndex] = useState(0);
@@ -15,7 +18,7 @@ function ProjectImageCarousel({ images }: { images: string[] }) {
 
   return (
     <div className="h-48 w-full overflow-hidden rounded-xl mb-4 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-      <img
+      <Image
         loading="lazy"
         src={images[index]}
         alt="Project screenshot"
