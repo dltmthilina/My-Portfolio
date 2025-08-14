@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FaReact, FaNodeJs, FaDocker, FaAws } from "react-icons/fa";
 import {
   SiTypescript,
@@ -33,7 +34,7 @@ export default function About() {
         >
           <div className="w-64 h-64 rounded-full overflow-hidden shadow-xl flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600">
             {/* Placeholder Avatar */}
-            <img
+            <Image
               src="/me.jpeg"
               alt="Thilina"
               className="w-full h-full object-cover object-center scale-125 mt-16"
