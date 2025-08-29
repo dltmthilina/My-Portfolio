@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
 import { BsMedium } from "react-icons/bs";
 
@@ -18,6 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
@@ -202,6 +203,19 @@ export default function Navbar() {
           </div>
         </motion.div>
       )}
+      <motion.div
+        id="scroll-indicator"
+        style={{
+          scaleX: scrollYProgress,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 10,
+          originX: 0,
+          backgroundColor: "oklch(58.5% 0.233 277.117)",
+        }}
+      ></motion.div>
     </header>
   );
 }

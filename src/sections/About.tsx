@@ -35,6 +35,8 @@ export default function About() {
           <div className="w-64 h-64 rounded-full overflow-hidden shadow-xl flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600">
             {/* Placeholder Avatar */}
             <Image
+              width={256} // or your actual image width
+              height={256}
               src="/me.jpeg"
               alt="Thilina"
               className="w-full h-full object-cover object-center scale-125 mt-16"
