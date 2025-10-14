@@ -10,20 +10,12 @@ export default function ContactSection() {
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.current) return;
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
-
-    if (!serviceId || !templateId || !userId) {
-      alert("Email service configuration is missing. Please contact the site administrator.");
-      return;
-    }
     emailjs
       .sendForm(
-        serviceId,
-        templateId,
+        "service_890ozup",
+        "template_3anajvq",
         form.current,
-        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+        "gknFygdfrC9cIAHGu"
       )
       .then(
         () => {

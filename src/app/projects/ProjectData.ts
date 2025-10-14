@@ -8,6 +8,7 @@ import {
   SiNextdotjs,
   SiSpringboot,
   SiMysql,
+  SiFramer,
 } from "react-icons/si";
 
 import { IconType } from "react-icons";
@@ -18,11 +19,18 @@ type Technology = {
   className?: string;
 };
 
+export type ImageProp = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 type Project = {
   title: string;
   date: string;
   description: string[];
-  images: string[];
+  images: ImageProp[];
   technologies: Technology[];
   github: {
     frontend?: string;
@@ -42,7 +50,14 @@ export const projects: Project[] = [
       "secure login with JWT",
       "RESTful APIs with Node.js and Express",
     ],
-    images: ["/travel/01.jpg"],
+    images: [
+      {
+        src: "/travel/01.jpg",
+        alt: "Travel Image 1",
+        width: 256,
+        height: 256,
+      },
+    ],
     technologies: [
       { name: "Next.js", icon: SiNextdotjs, className: "text-blue-500" },
       { name: "TypeScript", icon: SiTypescript, className: "text-blue-700" },
@@ -75,7 +90,20 @@ export const projects: Project[] = [
       "Full-stack with React and Node.js",
       "MongoDB for data storage",
     ],
-    images: ["/sms/01.jpg", "/sms/02.jpg"],
+    images: [
+      {
+        src: "/sms/01.jpg",
+        alt: "SMS Image 1",
+        width: 256,
+        height: 256,
+      },
+      {
+        src: "/sms/02.jpg",
+        alt: "SMS Image 2",
+        width: 256,
+        height: 256,
+      },
+    ],
     technologies: [
       { name: "React", icon: FaReact, className: "text-blue-500" },
       { name: "Node.js", icon: FaNodeJs, className: "text-green-600" },
@@ -110,7 +138,20 @@ export const projects: Project[] = [
       "Role-based access control",
       "Database management with MySQL",
     ],
-    images: ["/skyway/01.jpg", "/skyway/02.jpg"],
+    images: [
+      {
+        src: "/skyway/01.jpg",
+        alt: "SkyWay Image 1",
+        width: 256,
+        height: 256,
+      },
+      {
+        src: "/skyway/02.jpg",
+        alt: "SkyWay Image 2",
+        width: 256,
+        height: 256,
+      },
+    ],
     technologies: [
       { name: "React", icon: FaReact, className: "text-blue-500" },
       {
@@ -151,7 +192,14 @@ export const projects: Project[] = [
       "Deployed on AWS S3 and CloudFront",
       "Uses Github Actions for CI/CD",
     ],
-    images: ["/portfolio/01.jpg"],
+    images: [
+      {
+        src: "/portfolio/01.jpg",
+        alt: "Portfolio Image 1",
+        width: 256,
+        height: 256,
+      },
+    ],
     technologies: [
       { name: "React", icon: FaReact, className: "text-blue-500" },
       {
@@ -160,6 +208,7 @@ export const projects: Project[] = [
         className: "text-cyan-500",
       },
       { name: "Next.js", icon: SiNextdotjs, className: "text-blue-500" },
+      { name: "Framer Motion", icon: SiFramer, className: "text-blue-500" },
       { name: "AWS", icon: FaAws, className: "text-blue-500" },
     ],
     github: {

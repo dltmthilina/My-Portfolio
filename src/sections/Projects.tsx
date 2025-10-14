@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { FaCalendarAlt, FaReact, FaGithub } from "react-icons/fa";
-import { projects } from "../app/projects/ProjectData";
+import { ImageProp, projects } from "../app/projects/ProjectData";
 import Image from "next/image";
 
-function ProjectImageCarousel({ images }: { images: string[] }) {
+function ProjectImageCarousel({ images }: { images: ImageProp[] }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -19,9 +19,11 @@ function ProjectImageCarousel({ images }: { images: string[] }) {
   return (
     <div className="h-48 w-full overflow-hidden rounded-xl mb-4 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
       <Image
+        width={images[index].width}
+        height={images[index].height}
         loading="lazy"
-        src={images[index]}
-        alt="Project screenshot"
+        src={images[index].src}
+        alt={images[index].alt}
         className="object-cover w-full h-full transition-all duration-500"
       />
     </div>
