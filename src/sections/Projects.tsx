@@ -34,9 +34,9 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="w-full bg-white dark:bg-gray-900 py-10 px-6 md:px-20 text-gray-900 dark:text-white"
+      className=" bg-white py-10 px-6 md:px-20 text-gray-900"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           Projects
         </h2>

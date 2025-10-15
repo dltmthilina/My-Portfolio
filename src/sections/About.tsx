@@ -22,9 +22,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 w-full bg-white dark:bg-gray-900 text-gray-800 dark:text-white  px-6 md:px-10"
+      className="relative z-10  bg-white text-gray-800  px-6 md:px-10"
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center  ">
+      <div className=" mx-auto grid md:grid-cols-2 gap-12 items-center  ">
         {/* Profile */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
