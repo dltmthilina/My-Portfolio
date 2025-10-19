@@ -22,9 +22,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 w-full bg-white dark:bg-gray-900 text-gray-800 dark:text-white  px-6 md:px-10"
+      className="relative z-10  text-white px-6 md:px-10 py-12 "
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center  ">
+      <div className="mt-4 mx-auto  items-center  ">
         {/* Profile */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -32,7 +32,7 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center justify-center space-y-6"
         >
-          <div className="w-64 h-64 rounded-full overflow-hidden shadow-xl flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600">
+          <div className="w-64 h-64 rounded-full overflow-hidden shadow-2xl flex items-center justify-center bg-gradient-to-br from-[#9d55f0] to-[#6665f1] border-4 border-white/10">
             {/* Placeholder Avatar */}
             <Image
               width={256} // or your actual image width
@@ -42,110 +42,73 @@ export default function About() {
               className="w-full h-full object-cover object-center scale-125 mt-16"
             />
           </div>
-          <div>
-            <ul className="list-disc list-inside text-lg mb-6 space-y-2">
-              <li>Software Engineer with 3+ years of hands-on experience</li>
-              <li>
-                Passionate about building modern, scalable web applications
-              </li>
-              <li>Strong focus on clean code and seamless user experience</li>
-              <li>Enjoys collaborating in agile, cross-functional teams</li>
-              <li>Continuous learner and technology enthusiast</li>
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Bio + Skills */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h3 className="text-xl font-semibold mb-2">Skills & Tools</h3>
-          <div className="space-y-3">
-            <div>
-              <span className="font-medium">Frontend:</span>
-              <div className="flex flex-wrap gap-2 mt-1">
-                <span className="flex items-center gap-1 px-3 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <FaReact />
-                  ReactJS
+          <div className="max-w-2xl mx-auto mt-2">
+            <p className="text-lg md:text-xl mb-8 font-medium leading-relaxed text-white/90">
+              <span className="font-extrabold text-2xl md:text-3xl bg-gradient-to-r  drop-shadow-lg">
+                Hi, I'm Thilina Disanayaka.
+              </span>
+              <br />
+              <span className=" mt-3">
+                I’m a creative problem solver and full-stack engineer who loves
+                building things that make a difference. My journey started with
+                curiosity and a knack for tech, and now I’ve architected,
+                designed, and shipped products for startups and global clients
+                alike. From MongoDB to AWS, I thrive in the full stack—turning
+                ideas into robust, beautiful digital experiences. I’m always
+                exploring new tools, frameworks, and creative ways to push the
+                boundaries of what’s possible. Let’s build something amazing
+                together!
+              </span>
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center mb-8">
+              {[
+                {
+                  name: "ReactJS",
+                  icon: <FaReact className="text-[#61dafb]" />,
+                },
+                {
+                  name: "TypeScript",
+                  icon: <SiTypescript className="text-[#3178c6]" />,
+                },
+                {
+                  name: "NodeJS",
+                  icon: <FaNodeJs className="text-[#68a063]" />,
+                },
+                { name: "MySQL", icon: <SiMysql size={16} /> },
+                {
+                  name: "MongoDB",
+                  icon: <SiMongodb className="text-[#47a248]" />,
+                },
+                {
+                  name: "TailwindCSS",
+                  icon: <SiTailwindcss className="text-[#38bdf8]" />,
+                },
+                { name: "Redux", icon: <SiRedux /> },
+                {
+                  name: "Express",
+                  icon: <SiExpress />,
+                },
+                {
+                  name: "AdonisJS",
+                  icon: <SiAdonisjs />,
+                },
+                { name: "Jest", icon: <SiJest className="text-[#c21325]" /> },
+                {
+                  name: "Docker",
+                  icon: <FaDocker className="text-[#2496ed]" />,
+                },
+                { name: "AWS", icon: <FaAws className="text-[#ff9900]" /> },
+                { name: "Git", icon: <SiGit className="text-[#f05032]" /> },
+                { name: "GitHub", icon: <SiGithub /> },
+              ].map((tool) => (
+                <span
+                  key={tool.name}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#232946] to-[#9d55f0] text-white/90 border border-white/10 shadow-lg text-sm font-semibold hover:scale-105 transition-transform duration-200"
+                >
+                  {tool.icon}
+                  <span className="font-bold drop-shadow-sm">{tool.name}</span>
                 </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiTypescript />
-                  TypeScript
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiTailwindcss />
-                  TailwindCSS
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiRedux />
-                  Redux
-                </span>
-              </div>
-            </div>
-            <div>
-              <span className="font-medium">Backend:</span>
-              <div className="flex flex-wrap gap-2 mt-1">
-                <span className="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 dark:bg-green-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <FaNodeJs />
-                  NodeJS
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 dark:bg-green-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiExpress />
-                  ExpressJS
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 dark:bg-green-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiAdonisjs />
-                  AdonisJS
-                </span>
-              </div>
-            </div>
-            <div>
-              <span className="font-medium">Database:</span>
-              <div className="flex flex-wrap gap-2 mt-1">
-                <span className="flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiMongodb />
-                  MongoDB
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiMysql />
-                  MySQL
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiMongoose />
-                  Mongoose ORM
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiLucid />
-                  Lucid ORM
-                </span>
-              </div>
-            </div>
-            <div>
-              <span className="font-medium">DevOps & Tools:</span>
-              <div className="flex flex-wrap gap-2 mt-1">
-                <span className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <FaDocker />
-                  Docker
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <FaAws />
-                  AWS
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiJest />
-                  Jest
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiGit />
-                  Git
-                </span>
-                <span className="flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-white rounded-full text-sm font-medium shadow">
-                  <SiGithub />
-                  GitHub & GitHub Actions
-                </span>
-              </div>
+              ))}
             </div>
           </div>
         </motion.div>
