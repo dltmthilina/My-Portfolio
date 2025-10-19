@@ -33,6 +33,9 @@ export default function ContactSection() {
       id="contact"
       className="w-full py-20 px-6 md:px-20 text-gray-900 dark:text-white"
     >
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#ffffff]">
+        Contact Me
+      </h2>
       <div className="max-w-4xl mx-auto text-center rounded-3xl border border-white/10 bg-gradient-to-br from-[#12002f] via-[#1a0a3c] to-[#0b0510] p-8 shadow-2xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-12">
