@@ -43,7 +43,7 @@ export default function About() {
           <div className="max-w-2xl mx-auto mt-2">
             <p className="text-lg md:text-xl mb-8 font-medium leading-relaxed text-white/90">
               <span className="font-extrabold text-2xl md:text-3xl bg-gradient-to-r  drop-shadow-lg">
-                Hi, I'm Thilina Disanayaka.
+                Hi, I&apos;m Thilina Disanayaka.
               </span>
               <br />
               <span className=" mt-3">
