@@ -2,39 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  overflow-x: hidden;
-}
-
-body {
-  overflow-x: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  background-color: black;
-  color: white;
-}
-
-@layer utilities {
-  .animate-glow-move {
-    animation: glowMove 8s ease-in-out infinite alternate;
-  }
-  @keyframes glowMove {
-    0% {
-      transform: translate(-50%, -50%) scale(1) rotate(0deg);
-      opacity: 0.7;
-      filter: blur(80px);
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.15) rotate(15deg);
-      opacity: 1;
-      filter: blur(100px);
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(1) rotate(-10deg);
-      opacity: 0.7;
-      filter: blur(80px);
-    }
-  }
+:root {
+  --color-bg-dark: #12002f;
+  --color-bg-mid: #1a0a3c;
+  --color-bg-light: #0b0510;
+  --color-gradient-end: #9d55f0;
+  --color-bg-primary: #6665f1;
+  --color-gradient-via: #00e0ff;
+  --color-text-main: #ffffff;
+  --color-text-secondary: #c7c7c7;
+  --color-bg-base: #12002f;
+  --color-bg-mid: #1a0a3c;
+  --color-bg-light: #0b0510;
+  /* Add more as needed */
 }

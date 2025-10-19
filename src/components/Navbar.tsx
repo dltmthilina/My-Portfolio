@@ -30,7 +30,7 @@ export default function Navbar({ refs }: NavbarProps) {
   useActiveSection(refs, setActiveSection);
 
   return (
-    <header className="fixed w-full top-0 left-0 z-50 bg-gradient-to-br from-[#12002f] via-[#1a0a3c] to-[#0b0510] overflow-x-hidden">
+    <header className="fixed w-full top-0 left-0 z-50 bg-gradient-to-tr from-[#12002f] via-[#1a0a3c] to-[#0b0510] overflow-x-hidden">
       <div className="flex justify-between items-center px-4 h-16 md:px-10">
         {/* Logo */}
         <motion.div

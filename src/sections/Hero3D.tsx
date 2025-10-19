@@ -41,12 +41,6 @@ function TypingAnimation({ text }: { text: string }) {
 export default function Hero3D() {
   return (
     <section id="home" className="relative w-full  px-6 py-10 overflow-hidden">
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 animate-glow-move"
-        aria-hidden="true"
-      >
-        <div className="w-[100px] h-[600px] rounded-full bg-gradient-to-tr from-[#9d55f0] via-[#6665f1] to-[#00e0ff] opacity-70 blur-3xl" />
-      </div>
       <div className="mx-auto grid md:grid-cols-2 gap-10  relative z-10">
         {/* Left: Text Content */}
         <div className="flex flex-col ml-12  mt-8 w-full">
