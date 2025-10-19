@@ -40,10 +40,7 @@ function TypingAnimation({ text }: { text: string }) {
 
 export default function Hero3D() {
   return (
-    <section
-      id="home"
-      className="relative w-full bg-gradient-to-br from-[#12002f] via-[#1a0a3c] to-[#0b0510] px-6 py-10 overflow-hidden"
-    >
+    <section id="home" className="relative w-full  px-6 py-10 overflow-hidden">
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 animate-glow-move"
         aria-hidden="true"
