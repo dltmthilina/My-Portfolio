@@ -1,15 +1,12 @@
 "use client";
 
 import Hero3D from "@/sections/Hero3D";
-import ProjectsSection from "@/sections/Projects";
 import About from "@/sections/About";
-import ExperienceSection from "@/sections/Experience";
 import ContactSection from "@/sections/Contact";
 import { useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Projects from "@/sections/Projects";
 import Experience from "@/sections/Experience";
-import { Contact } from "lucide-react";
 
 export default function HomePage() {
   const homeRef = useRef<HTMLDivElement>(null!);

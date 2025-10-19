@@ -12,8 +12,6 @@ import {
   SiJest,
   SiAdonisjs,
   SiMysql,
-  SiMongoose,
-  SiLucid,
   SiGit,
   SiGithub,
 } from "react-icons/si";

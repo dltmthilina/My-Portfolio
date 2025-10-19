@@ -1,12 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import clsx from "clsx";
 import { motion, useScroll } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import { FiGithub, FiLinkedin, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 const navLinks = [
